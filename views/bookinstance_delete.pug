@@ -1,0 +1,12 @@
+extends layout 
+
+block content 
+  h1 #{title}
+  p #[strong Id:] #{bookinstance.id}
+  p #[strong Status:] #{bookinstance.status}
+
+  form(action="", method="post")
+    div.form-group
+      input#bookinstanceid.form-control(type='hidden', name='bookinstanceid', required='true', value=bookinstance._id)
+
+    button.btn.btn-primary(type="submit") Delete 
