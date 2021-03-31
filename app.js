@@ -1,8 +1,10 @@
 var createError = require("http-errors");
 var express = require("express");
 const mongoose = require("mongoose");
-const mongoDB =
+var dev_db_url =
   "mongodb+srv://omar:8gdA9LSFCufTzqg@cluster0.kytzt.mongodb.net/local_library?retryWrites=true&w=majority";
+var mongoDB = process.env.MONGODB_URI || dev_db_url;
+
 mongoose.connect(mongoDB, { useNewUrlParser: true, useUnifiedTopology: true });
 const db = mongoose.connection;
 db.on("error", console.error.bind(console, "MongoDB connection error:"));
